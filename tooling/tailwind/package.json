@@ -1,8 +1,11 @@
 {
-  "name": "@zeecom/tailwind",
+  "name": "@zeecom/tailwind-config",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "exports": {
+    "./web": "./web.ts"
+  },
   "scripts": {
     "clean": "git clean -xdf .cache .turbo node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",
