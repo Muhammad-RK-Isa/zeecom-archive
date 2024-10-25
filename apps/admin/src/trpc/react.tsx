@@ -5,12 +5,13 @@ import { useState } from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { loggerLink, unstable_httpBatchStreamLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
-import { type inferRouterInputs, type inferRouterOutputs } from "@trpc/server";
+import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 import SuperJSON from "superjson";
 
-import { type AdminRouter } from "@zeecom/api/admin";
+import type { AdminRouter } from "@zeecom/api/admin";
 
 import { createQueryClient } from "./query-client";
+import { env } from "~/env";
 
 let clientQueryClientSingleton: QueryClient | undefined = undefined;
 const getQueryClient = () => {
@@ -46,7 +47,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
       links: [
         loggerLink({
           enabled: (op) =>
-            process.env.NODE_ENV === "development" ||
+            env.NODE_ENV === "development" ||
             (op.direction === "down" && op.result instanceof Error),
         }),
         unstable_httpBatchStreamLink({
@@ -73,6 +74,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
 
 function getBaseUrl() {
   if (typeof window !== "undefined") return window.location.origin;
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-  return `http://localhost:${process.env.PORT ?? 3000}`;
+  if (env.VERCEL_URL) return `https://${env.VERCEL_URL}`;
+  // eslint-disable-next-line no-restricted-properties
+  return `http://localhost:${process.env.PORT ?? 8000}`;
 }
