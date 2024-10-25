@@ -1,0 +1,22 @@
+{
+  "name": "@zeecom/tailwind",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@zeecom/eslint-config": "*",
+    "@zeecom/prettier-config": "*",
+    "@zeecom/tsconfig": "*"
+  },
+  "dependencies": {
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}
