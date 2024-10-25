@@ -4,14 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "bunx --bun with-env next build",
+    "build": "bunx --bun dotenv -e ../../.env -- next build",
     "clean": "git clean -xdf .cache .next .turbo node_modules",
-    "dev": "bunx --bun with-env next dev --port=9000 --turbo",
+    "dev": "bunx --bun dotenv -e ../../.env -- next dev --port=9000 --turbo",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
-    "start": "bunx --bun with-env next start",
-    "typecheck": "tsc --noEmit",
-    "with-env": "dotenv -e ../../.env --"
+    "start": "bunx --bun dotenv -e ../../.env -- next start",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
