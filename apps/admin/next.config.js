@@ -5,6 +5,12 @@ import { createJiti } from "jiti";
 await createJiti( fileURLToPath( import.meta.url ) ).import( "./src/env" );
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  transpilePackages: [
+    "@zeecom/auth",
+    "@zeecom/db",
+    "@zeecom/api",
+  ]
+};
 
 export default config;
