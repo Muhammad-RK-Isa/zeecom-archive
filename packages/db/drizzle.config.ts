@@ -7,7 +7,7 @@ if (!DATABASE_URL) {
 }
 
 export default {
-  schema: "./src/schema/index.ts", 
+  schema: "./src/schema/index.ts",
   dialect: "postgresql",
   dbCredentials: {
     url: DATABASE_URL,

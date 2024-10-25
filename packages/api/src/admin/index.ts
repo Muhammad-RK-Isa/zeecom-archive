@@ -2,7 +2,7 @@ import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 
 import type { AdminRouter } from "./root";
 import { adminRouter } from "./root";
-import { createCallerFactory, createAdminContext } from "./trpc";
+import { createAdminContext, createCallerFactory } from "./trpc";
 
 /**
  * Create a server-side caller for the tRPC API

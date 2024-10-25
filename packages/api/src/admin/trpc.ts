@@ -3,9 +3,8 @@ import SuperJSON from "superjson";
 import { ZodError } from "zod";
 
 export const createAdminContext = ({ headers }: { headers: Headers }) => {
-  return {
-  }
-}
+  return {};
+};
 
 const t = initTRPC
   .context<Awaited<ReturnType<typeof createAdminContext>>>()

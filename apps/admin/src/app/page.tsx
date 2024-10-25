@@ -1,14 +1,13 @@
-
 import { api, HydrateClient } from "~/trpc/server";
 
 export default async function Home() {
   const data = await api.mirror("Mirror from tRPC");
 
-  const test = api.test()
+  const test = api.test();
 
   return (
     <HydrateClient>
-      <main >
+      <main>
         {data}
         <br />
         <br />

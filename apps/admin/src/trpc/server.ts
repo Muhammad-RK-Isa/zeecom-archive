@@ -1,11 +1,12 @@
 import "server-only";
 
-import { createHydrationHelpers } from "@trpc/react-query/rsc";
-import { headers } from "next/headers";
+import type { AdminRouter } from "@zeecom/api/admin";
 import { cache } from "react";
+import { headers } from "next/headers";
+import { createHydrationHelpers } from "@trpc/react-query/rsc";
 
-import { createCaller, type AdminRouter } from "@zeecom/api/admin";
-import { createAdminContext } from "@zeecom/api/admin";
+import { createAdminContext, createCaller } from "@zeecom/api/admin";
+
 import { createQueryClient } from "./query-client";
 
 /**
@@ -26,5 +27,5 @@ const caller = createCaller(createContext);
 
 export const { trpc: api, HydrateClient } = createHydrationHelpers<AdminRouter>(
   caller,
-  getQueryClient
+  getQueryClient,
 );
