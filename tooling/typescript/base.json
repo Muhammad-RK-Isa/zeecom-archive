@@ -7,7 +7,7 @@
     "incremental": false,
     "isolatedModules": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "NodeNext",
+    "module": "Preserve",
     "moduleDetection": "force",
     "moduleResolution": "Bundler",
     "noUncheckedIndexedAccess": true,
