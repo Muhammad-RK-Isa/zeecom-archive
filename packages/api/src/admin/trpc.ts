@@ -1,11 +1,9 @@
 import { initTRPC } from "@trpc/server";
-import { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import SuperJSON from "superjson";
 import { ZodError } from "zod";
 
-export const createAdminContext = (opts: FetchCreateContextFnOptions) => {
+export const createAdminContext = ({ headers }: { headers: Headers }) => {
   return {
-    ...opts,
   }
 }
 
