@@ -1,7 +1,8 @@
 import "~/styles/globals.css";
 
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google"
+import { Poppins } from "next/font/google";
+
 import { cn } from "~/lib/utils";
 import Providers from "~/providers";
 
@@ -23,9 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(poppins.className)}>
       <body>
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

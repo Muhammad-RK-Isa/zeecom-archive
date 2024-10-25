@@ -1,6 +1,5 @@
-import { NextResponse } from "next/server";
-
 import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function middleware(request: NextRequest): Promise<NextResponse> {
@@ -11,7 +10,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
   const hostHeader = request.headers.get("X-Forwarded-Host");
   if (originHeader === null || hostHeader === null) {
     return new NextResponse(null, {
-      status: 403
+      status: 403,
     });
   }
   let origin: URL;
@@ -19,12 +18,12 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
     origin = new URL(originHeader);
   } catch {
     return new NextResponse(null, {
-      status: 403
+      status: 403,
     });
   }
   if (origin.host !== hostHeader) {
     return new NextResponse(null, {
-      status: 403
+      status: 403,
     });
   }
   return NextResponse.next();

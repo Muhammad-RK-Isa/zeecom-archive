@@ -7,6 +7,7 @@ import {
   uniqueIndex,
   varchar,
 } from "drizzle-orm/pg-core";
+
 import { generateId, lifecycleDates } from "../lib/utils";
 
 export const pgUserRoles = pgEnum("role", ["user", "admin"]);
