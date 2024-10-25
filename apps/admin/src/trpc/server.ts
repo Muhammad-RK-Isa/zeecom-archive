@@ -4,8 +4,8 @@ import { createHydrationHelpers } from "@trpc/react-query/rsc";
 import { headers } from "next/headers";
 import { cache } from "react";
 
-import { createCaller, type AppRouter } from "~/server/api/root";
-import { createTRPCContext } from "~/server/api/trpc";
+import { createCaller, type AdminRouter } from "@zeecom/api/admin";
+import { createAdminContext } from "@zeecom/api/admin";
 import { createQueryClient } from "./query-client";
 
 /**
@@ -16,7 +16,7 @@ const createContext = cache(() => {
   const heads = new Headers(headers());
   heads.set("x-trpc-source", "rsc");
 
-  return createTRPCContext({
+  return createAdminContext({
     headers: heads,
   });
 });
@@ -24,7 +24,7 @@ const createContext = cache(() => {
 const getQueryClient = cache(createQueryClient);
 const caller = createCaller(createContext);
 
-export const { trpc: api, HydrateClient } = createHydrationHelpers<AppRouter>(
+export const { trpc: api, HydrateClient } = createHydrationHelpers<AdminRouter>(
   caller,
   getQueryClient
 );
