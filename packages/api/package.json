@@ -2,6 +2,10 @@
   "name": "@zeecom/api",
   "version": "0.0.0",
   "private": true,
+  "exports": {
+    "./admin": "./src/admin/index.ts",
+    "./store": "./src/store/index.ts"
+  },
   "scripts": {
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
